@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Building Mastery Project') {
+            steps {
+                echo 'New changes happened from Dev'
+            }
+        }
+         stage('Deploying in DEV environment') {
+            steps {
+                echo 'Deploying the new code on Dev environment'
+            }
+        }
+         stage('Load Testing Triggers') {
+            steps {
+                echo 'NFT Load Test through Jmeter'
+            }
+        }
+         stage('Release into Stage environment') {
+            steps {
+                echo 'Release to Stage Environment '
+            }
+        }
+    }
+}
