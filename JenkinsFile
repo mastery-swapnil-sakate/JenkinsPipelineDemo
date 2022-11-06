@@ -15,8 +15,7 @@ pipeline {
          stage('Load Testing Triggers') {
             steps {
                 echo 'NFT Load Test through Jmeter'
-                // bat 'c:/Tools/apache-jmeter-5.5/apache-jmeter-5.5/bin/jmeter.bat -n -t c:/Tools/apache-jmeter-5.5/apache-jmeter-5.5/bin/Jmeter_Jenkin_Job.jmx -l c:/Tools/apache-jmeter-5.5/apache-jmeter-5.5/bin/Jmeter_Jenkin_Job_Result.jtl'
-                bat 'C:\Tools\apache-jmeter-5.5\apache-jmeter-5.5\bin\jmeter.bat -n -t C:\Tools\apache-jmeter-5.5\apache-jmeter-5.5\bin\Jmeter_Jenkin_Job.jmx -l C:\Tools\apache-jmeter-5.5\apache-jmeter-5.5\bin\Result_4_Nov_22.jtl'
+                bat 'c:/Tools\apache-jmeter-5.5/apache-jmeter-5.5/bin/jmeter.bat -n -t c:/Tools/apache-jmeter-5.5/apache-jmeter-5.5/bin/Jmeter_Jenkin_Job.jmx -l c:/Tools/apache-jmeter-5.5/apache-jmeter-5.5/bin/Result_4_Nov_22.jtl'
             }
         }
          stage('Release into Stage environment') {
