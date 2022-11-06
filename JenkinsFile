@@ -1,27 +1,53 @@
-pipeline {
+pipeline 
+{
     agent any
 
-    stages {
-        stage('Building Mastery Project') {
-            steps {
+    stages 
+    {
+        
+        stage('Building Mastery Project')
+       {
+            steps 
+            {
                 echo 'New changes happened from Dev'
             }
-        }
-         stage('Deploying in DEV environment') {
-            steps {
+       }
+         
+        stage('Deploying in DEV environment') 
+        {
+            steps 
+            {
                 echo 'Deploying the new code on Dev environment'
             }
         }
-         stage('Load Testing Triggers') {
-            steps {
-                echo 'NFT Load Test through Jmeter'
-                bat 'c:/Tools/apache-jmeter-5.5/apache-jmeter-5.5/bin/jmeter.bat -n -t C:/Tools/Project_details/Mastery_Final_GraphQL.jmx -l C:/Tools/Project_details/Result_4_Nov_22.jtl'
-            }
+                   
+         stage('Clone Test Repo') 
+        {
+           steps {
+                   echo 'Clone the repo'
+                   git branch: 'main', url: 'https://github.com/mastery-ganesh-kamble/JenkinsPipelineDemo.git'
+                  }
         }
-         stage('Release into Stage environment') {
+        
+        stage('Execute Performance Test') 
+        {
+          steps {
+                  echo 'Executing the performance test'
+                  bat 'c:/Tools/apache-jmeter-5.5/apache-jmeter-5.5/bin/jmeter.bat -n -t Mastery_Final_GraphQL.jmx  -l Mastery_Final_GraphQL_r1.jtl'
+                }
+        }
+        stage('Publish Report')
+        {
+           steps {
+                perfReport filterRegex: '', sourceDataFiles: '**/*.jtl'
+                 }
+        }
+        
+        stage('Release into Stage environment') 
+        {
             steps {
                 echo 'Release to Stage Environment '
-            }
+                  }
         }
     }
 }
