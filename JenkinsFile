@@ -26,7 +26,7 @@ pipeline
            steps {
                    echo 'Clone the repo'
                    git branch: 'main', url: 'https://github.com/mastery-ganesh-kamble/JenkinsPipelineDemo.git'
-                  }
+                 }
         }
         
         stage('Execute Performance Test') 
