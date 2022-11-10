@@ -46,8 +46,9 @@ pipeline
         stage('Release into Stage environment') 
         {
             steps {
-                echo 'Release to Stage Environment '
+                echo 'Release to Stage Environment'
                   }
         }
     }
 }
+
