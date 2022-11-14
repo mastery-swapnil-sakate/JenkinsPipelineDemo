@@ -1,10 +1,17 @@
-- name: JMeter Test
-  uses: QAInsights/PerfAction@v3.1
-  with:
-    test-plan-path: Mastery_Final_GraphQL.jmx
-    args: ""
-- name: Upload Results
-  uses: actions/upload-artifact@v2
-  with:
-    name: jmeter-results
-    path: result.jtl
+
+name: Main Workflow
+on: [push]
+jobs:
+  build:
+    name: Run Jmeter test
+    runs-on: ubuntu-latest
+    steps:
+    - name: JMeter Test
+      uses: QAInsights/PerfAction@v3.1
+      with:
+        filename: Mastery_Final_GraphQL.jmx
+        args: ""
+    - name: Upload Results
+      uses: actions/upload-artifact@v2
+      with:
+       filename: jmeter-results
