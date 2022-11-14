@@ -7,7 +7,7 @@ jobs:
     - name: JMeter Test
       uses: QAInsights/PerfAction@v3.1
       with:
-          test-plan-path: Mastery_Final_GraphQL.jmx
+          test-plan-path: './github/workspace/Mastery_Final_GraphQL.jmx'
     - name: Upload Results
       uses: actions/upload-artifact@v2
       with:
